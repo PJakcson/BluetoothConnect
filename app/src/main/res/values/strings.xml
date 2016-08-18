@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MercedesMe</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="text_first">#hi</string>
+    <string name="text_second">Manuell</string>
+    <string name="text_third">Biohazard</string>
+    <string name="text_fourth">Insane</string>
+
+    <array name="mode_codes">
+        <item type="string">@string/text_first</item>
+        <item type="string">@string/text_second</item>
+        <item type="string">@string/text_third</item>
+        <item type="string">@string/text_fourth</item>
+    </array>
+</resources>
