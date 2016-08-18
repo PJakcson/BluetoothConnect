@@ -11,6 +11,8 @@
     <color name="colorThird">#455A64</color>
     <color name="colorFourth">#00897B</color>
 
+    <item name="asdf" type="drawable">@drawable/ic_loop_black_24dp</item>
+
     <array name="mdcolor_500">
         <item type="color">@color/colorFirst</item>
         <item type="color">@color/colorSecond</item>

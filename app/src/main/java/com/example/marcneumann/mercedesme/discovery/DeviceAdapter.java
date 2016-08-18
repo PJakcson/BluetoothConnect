@@ -1,6 +1,7 @@
 package com.example.marcneumann.mercedesme.discovery;
 
 import android.bluetooth.BluetoothDevice;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,8 @@ class DeviceAdapter extends RecyclerView.Adapter<DeviceAdapter.SimpleViewHolder>
         holder.mTextView.setText(BluetoothHelper.deviceToString(device));
         if (device.getName().contains("HC") && device.getName().contains("05")) {
             holder.itemView.setBackgroundResource(R.color.colorHC05Highlight);
+        } else {
+            holder.itemView.setBackgroundColor(Color.TRANSPARENT);
         }
     }
 

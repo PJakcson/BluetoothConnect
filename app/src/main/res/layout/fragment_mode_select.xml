@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:padding="10dp"
-                android:text="@string/text_first"
+                android:text="@string/text_insane"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
         </FrameLayout>
 
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:padding="10dp"
-                android:text="@string/text_second"
+                android:text="@string/text_man"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
         </FrameLayout>
 
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="@string/text_third"
+                android:text="@string/text_bio"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
         </FrameLayout>
 
@@ -105,7 +105,55 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:padding="10dp"
-                android:text="@string/text_fourth"
+                android:text="@string/text_insane"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fifth_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/image_fifth"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/fourth"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:padding="10dp"
+                android:text="@string/text_insane"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/sixth_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <ImageView
+                android:id="@+id/image_sixth"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/fourth"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:padding="10dp"
+                android:text="@string/text_insane"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
         </FrameLayout>
 

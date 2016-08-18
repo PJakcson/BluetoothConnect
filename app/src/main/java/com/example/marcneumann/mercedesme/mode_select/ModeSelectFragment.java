@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,7 +24,8 @@ import butterknife.OnClick;
 
 public class ModeSelectFragment extends Fragment {
 
-    @BindViews({R.id.image_first, R.id.image_second, R.id.image_third, R.id.image_fourth})
+    @BindViews({R.id.image_first, R.id.image_second, R.id.image_third, R.id.image_fourth,
+            R.id.image_fifth, R.id.image_sixth})
     List<ImageView> mModePicker;
 
     private MainActivity mContext;
@@ -52,39 +52,22 @@ public class ModeSelectFragment extends Fragment {
     }
 
     private void sendMode(int i) {
-        setUpdateUI(i);
+        updateUI(mModePicker.get(i));
         if (mBluetoothSocket == null || !mBluetoothSocket.isConnected()) {
             mContext.showNoConnection();
         } else {
             ConnectedThread connectedThread = new ConnectedThread(mHandler, mBluetoothSocket);
             connectedThread.start();
-            connectedThread.write(mModes[i].getBytes());
+//            connectedThread.write(mModes[i].getBytes());
+            connectedThread.write(String.valueOf("#hi").getBytes());
         }
     }
 
-    private void setUpdateUI(int i) {
-        setSelectedColor(mModePicker.get(i), R.color.colorFirst);
-    }
-
-    private void setSelectedColor(ImageView greyToColor, @ColorRes int color) {
-//        mColorPicker.setBackgroundColor(ContextCompat.getColor(mContext, color));
+    private void updateUI(ImageView greyToColor) {
         Anim.setColoured(greyToColor, mColoredView);
         mColoredView = greyToColor;
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof MainActivity) {
-            mContext = (MainActivity) context;
-        } else {
-            throw new ClassCastException(null);
-        }
-    }
-
-    /**
-     * The Handler that gets information back from the BluetoothChatService
-     */
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -98,6 +81,16 @@ public class ModeSelectFragment extends Fragment {
             }
         }
     };
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof MainActivity) {
+            mContext = (MainActivity) context;
+        } else {
+            throw new ClassCastException(null);
+        }
+    }
 
     @OnClick(R.id.first_container)
     void onFirstClicked() {
@@ -119,8 +112,13 @@ public class ModeSelectFragment extends Fragment {
         sendMode(3);
     }
 
-    @OnClick(R.id.color_picker)
-    void onColorClicked() {
-        ((MainActivity) getActivity()).goToDeviceList();
+    @OnClick(R.id.fifth_container)
+    void onFifthClicked() {
+        sendMode(4);
+    }
+
+    @OnClick(R.id.sixth_container)
+    void onSixthClicked() {
+        sendMode(5);
     }
 }
