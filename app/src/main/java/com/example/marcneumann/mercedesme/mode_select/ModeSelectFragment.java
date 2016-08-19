@@ -38,16 +38,18 @@ public class ModeSelectFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_mode_select, container, false);
         ButterKnife.bind(this, rootView);
+        setRetainInstance(true);
+
         mContext.setTitle(R.string.app_name);
         if (mContext.getSupportActionBar() != null) {
             mContext.getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
             mContext.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
-
         mModes = getResources().getStringArray(R.array.mode_codes);
 
-        mBluetoothSocket = mContext.getBluetoothSocket();
-        if (mBluetoothSocket == null) {
+        if (mContext.getBluetoothSocket() != null) {
+            mBluetoothSocket = mContext.getBluetoothSocket();
+        } else {
             mContext.showNoConnection();
         }
 

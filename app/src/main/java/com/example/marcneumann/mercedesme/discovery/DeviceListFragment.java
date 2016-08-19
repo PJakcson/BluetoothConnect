@@ -176,7 +176,8 @@ public class DeviceListFragment extends Fragment implements BluetoothInteractor 
     @Override
     public void establishedSocketConnection(BluetoothSocket socket) {
         if (socket.isConnected()) {
-            mContext.goToModeSelect(socket);
+            mContext.setSocket(socket);
+            mContext.goToModeSelect();
         } else {
             mContext.showNoConnection("Verbindung fehlgeschlagen");
         }

@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ModeSelectFragment mModeSelectFragment;
     private DeviceListFragment mDeviceListFragment;
-    private BluetoothSocket mBluetoothSocket;
+    private MBsync mApplication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +33,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        mApplication = (MBsync) getApplication();
+
         setSupportActionBar(mToolbar);
         goToModeSelect();
-    }
-
-    public void goToModeSelect(BluetoothSocket socket) {
-        mBluetoothSocket = socket;
-        goToModeSelect();
-        updateMenu();
     }
 
     public void goToModeSelect() {
@@ -75,14 +71,11 @@ public class MainActivity extends AppCompatActivity {
     private void updateMenu() {
         runOnUiThread(() -> {
             if (mToolbar.getMenu().getItem(0) != null) {
-                mToolbar.getMenu().getItem(0).setIcon((mBluetoothSocket != null && mBluetoothSocket.isConnected()) ?
+                mToolbar.getMenu().getItem(0).setIcon((mApplication.getBluetoothSocket() != null
+                        && mApplication.getBluetoothSocket().isConnected()) ?
                         R.drawable.ic_bluetooth_connected : R.drawable.ic_bluetooth);
             }
         });
-    }
-
-    public BluetoothSocket getBluetoothSocket() {
-        return mBluetoothSocket;
     }
 
     @Override
@@ -119,5 +112,14 @@ public class MainActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public BluetoothSocket getBluetoothSocket() {
+        return mApplication.getBluetoothSocket();
+    }
+
+    public void setSocket(BluetoothSocket socket) {
+        updateMenu();
+        mApplication.setBluetoothSocket(socket);
     }
 }
