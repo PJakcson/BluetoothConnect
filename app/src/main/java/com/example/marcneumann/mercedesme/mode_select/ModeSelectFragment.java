@@ -38,7 +38,11 @@ public class ModeSelectFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_mode_select, container, false);
         ButterKnife.bind(this, rootView);
-        mContext.setTitle("MercedesMe");
+        mContext.setTitle(R.string.app_name);
+        if (mContext.getSupportActionBar() != null) {
+            mContext.getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
+            mContext.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }
 
         mModes = getResources().getStringArray(R.array.mode_codes);
 
@@ -58,8 +62,9 @@ public class ModeSelectFragment extends Fragment {
         } else {
             ConnectedThread connectedThread = new ConnectedThread(mHandler, mBluetoothSocket);
             connectedThread.start();
-//            connectedThread.write(mModes[i].getBytes());
-            connectedThread.write(String.valueOf("#hi").getBytes());
+            String message = "#" + mModes[i];
+            connectedThread.write(message.getBytes());
+//            connectedThread.write(String.valueOf("#hi").getBytes());
         }
     }
 

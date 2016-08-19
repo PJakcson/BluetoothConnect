@@ -54,8 +54,10 @@ public class DeviceListFragment extends Fragment implements BluetoothInteractor 
         View rootView = inflater.inflate(R.layout.fragment_device_list, container, false);
         ButterKnife.bind(this, rootView);
         mContext.setTitle("Wähle ein Bluetooth Gerät");
-        mContext.getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-        mContext.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (mContext.getSupportActionBar() != null) {
+            mContext.getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+            mContext.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         // setup recycler
         mDeviceList.setLayoutManager(new LinearLayoutManager(mContext));

@@ -20,6 +20,11 @@ public class Anim {
             return;
         }
 
+        greyView.animate().alpha(1f);
+        if (coloredView != null) {
+            coloredView.animate().alpha(.5f);
+        }
+
         final ColorMatrix greyMatrix = new ColorMatrix();
         final ColorMatrix colorMatrix = new ColorMatrix();
         greyMatrix.setSaturation(1f);
@@ -48,6 +53,7 @@ public class Anim {
 
         for (ImageView imageView : imageViews) {
             imageView.setColorFilter(filter);
+            imageView.setAlpha(.5f);
         }
     }
 

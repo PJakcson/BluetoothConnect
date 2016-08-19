@@ -5,8 +5,7 @@
     android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.marcneumann.mercedesme.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context="com.example.marcneumann.mercedesme.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,10 +31,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="start"
+                android:layout_gravity="end"
                 android:padding="10dp"
-                android:text="@string/text_insane"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                android:text="@string/text_i"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@android:color/primary_text_dark" />
         </FrameLayout>
 
         <FrameLayout
@@ -56,9 +56,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
+                android:layout_gravity="start"
                 android:padding="10dp"
-                android:text="@string/text_man"
+                android:text="@string/text_you"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
         </FrameLayout>
 
@@ -80,9 +80,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:padding="10dp"
-                android:text="@string/text_bio"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                android:text="@string/text_attention"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@android:color/primary_text_dark" />
         </FrameLayout>
 
         <FrameLayout
@@ -103,9 +105,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
+                android:layout_gravity="start"
                 android:padding="10dp"
-                android:text="@string/text_insane"
+                android:text="@string/text_healthy"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
         </FrameLayout>
 
@@ -121,15 +123,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/fourth"
+                android:src="@drawable/fifth"
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="start"
+                android:layout_gravity="end"
                 android:padding="10dp"
-                android:text="@string/text_insane"
+                android:text="@string/text_fresh"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
         </FrameLayout>
 
@@ -145,16 +147,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/fourth"
+                android:src="@drawable/sixth"
                 tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
+                android:gravity="start"
                 android:padding="10dp"
-                android:text="@string/text_insane"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                android:text="@string/text_coffee"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@android:color/primary_text_dark" />
         </FrameLayout>
 
         <ImageView

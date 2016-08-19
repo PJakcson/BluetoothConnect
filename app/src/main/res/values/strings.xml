@@ -1,18 +1,20 @@
 <resources>
-    <string name="app_name">MercedesMe</string>
+    <string name="app_name">MBsync</string>
     <string name="action_settings">Settings</string>
 
-    <string name="text_auto">Autonomous</string>
-    <string name="text_man">Manuell</string>
-    <string name="text_bio">Biohazard</string>
-    <string name="text_insane">Insane</string>
+    <string name="text_i">I Drive</string>
+    <string name="text_you">You Drive</string>
+    <string name="text_attention">Attention</string>
+    <string name="text_healthy">Healthy &amp; Fit</string>
+    <string name="text_coffee">Coffee o\' Clock</string>
+    <string name="text_fresh">Fresh Breeze</string>
 
     <array name="mode_codes">
-        <item type="string">@string/text_auto</item>
-        <item type="string">@string/text_man</item>
-        <item type="string">@string/text_bio</item>
-        <item type="string">@string/text_insane</item>
-        <item type="string">@string/text_insane</item>
-        <item type="string">@string/text_insane</item>
+        <item type="string">mode_1</item>
+        <item type="string">mode_2</item>
+        <item type="string">mode_3</item>
+        <item type="string">mode_4</item>
+        <item type="string">mode_5</item>
+        <item type="string">mode_6</item>
     </array>
 </resources>

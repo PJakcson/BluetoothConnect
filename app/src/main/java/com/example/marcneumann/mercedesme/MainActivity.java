@@ -68,15 +68,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showNoConnection() {
-        Snackbar.make(mContainer, "Keine Verbindung verfügbar", Snackbar.LENGTH_INDEFINITE)
+        Snackbar.make(mContainer, "Keine Verbindung verfügbar", Snackbar.LENGTH_LONG)
                 .setAction("Verbinden", view -> goToDeviceList()).show();
     }
 
     private void updateMenu() {
-        if (mToolbar.getMenu().getItem(0) != null) {
-            mToolbar.getMenu().getItem(0).setIcon((mBluetoothSocket != null && mBluetoothSocket.isConnected()) ?
-                    R.drawable.ic_bluetooth_connected : R.drawable.ic_bluetooth);
-        }
+        runOnUiThread(() -> {
+            if (mToolbar.getMenu().getItem(0) != null) {
+                mToolbar.getMenu().getItem(0).setIcon((mBluetoothSocket != null && mBluetoothSocket.isConnected()) ?
+                        R.drawable.ic_bluetooth_connected : R.drawable.ic_bluetooth);
+            }
+        });
     }
 
     public BluetoothSocket getBluetoothSocket() {
